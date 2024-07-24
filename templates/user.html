@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Users
+{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Login</th>
+      <th scope="col">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in user %}
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+       <td>{{ item.login }}</td>
+       <td>{{ item.password }}</td>
+        <td>
+        <a href="/user/{{item.id}}/delete" class="btn btn-danger"> Delete</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

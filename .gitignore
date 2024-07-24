@@ -1,0 +1,5 @@
+docker/db
+./docker/db
+.idea
+./.idea
+*/__pycache__

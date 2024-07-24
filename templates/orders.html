@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/orders">Orders</a>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+
+    </div>
+  </div>
+</nav>
+        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User id</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+   <tbody>
+ {% for order in orders %}
+    <tr>
+      <th scope="row">{{ order.id }}</th>
+       <td>{{ order.title_id  }}</td>
+       <td>{{ order.order_date }}</td>
+{#       <td><div>#}
+{#           <img src="/static/images/{{ item.filename }}"  alt="Image" width="100" height="100"/>#}
+{#       </div></td>#}
+{#        <td> <a href="/add_to_cart/{{ item.id }}" class="btn btn-success">Add to Shop</a></td>#}
+    </tr>
+  {% endfor %}
+  </tbody>
+    </table>
+
+
+
+{% endblock %}

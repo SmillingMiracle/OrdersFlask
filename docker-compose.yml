@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/python/Dockerfile
+    ports:
+      - "8080:5000"
+
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    networks:
+      - app
+
+  db:
+    image: mysql:latest
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
+    #volumes:
+     # - ./docker/db:/var/lib/mysql
+    networks:
+      - app
+
+
+networks:
+  app:
+    driver: bridge
